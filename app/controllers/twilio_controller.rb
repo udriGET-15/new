@@ -11,7 +11,7 @@ class TwilioController < ApplicationController
 	hi = "test response"
 	body = request.body.read.split("Body=")[1].split("&FromCountry")[0]
 	 if User.find_by(id: body) == nil
-		info = "Please send a correct code. The last code you sent was " + body
+		info = "Please send a correct code. Type the number 2 to get quotes. The last code you sent was " + body
 	  else
 		info = User.find_by(id: body).microposts.shuffle.first.content
 	  end
